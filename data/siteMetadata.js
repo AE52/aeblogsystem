@@ -2,13 +2,13 @@
 const siteMetadata = {
   title: 'Blog',
   author: 'ae52',
-  headerTitle: 'AE blog',
+  headerTitle: 'AEBlog',
   description: 'Projeler ve bilgilerimiz',
   language: 'tr-TR',
   theme: 'system', // system, dark or light
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
-  siteLogo: '/static/images/logo.png',
+  siteRepo: '',
+  siteLogo: '/data/logo.svg',
   socialBanner: '/static/images/twitter-card.png',
   mastodon: '/',
   email: 'asimerenozdemir@gmail.com',
