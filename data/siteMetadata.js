@@ -2,8 +2,8 @@
 const siteMetadata = {
   title: 'Blog',
   author: 'AE52',
-  headerTitle: 'AEblog',
-  description: 'burası ae52 blog sayfası',
+  headerTitle: 'AE blog',
+  description: 'Projeler ve bilgilerimiz',
   language: 'tr-TR',
   theme: 'system', // system, dark or light
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
