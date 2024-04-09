@@ -1,0 +1,75 @@
+---
+title: C++'da puan sıralama programı
+date: '2024-02-08'
+tags: ['projelerim', 'bildirim']
+draft: false
+summary: C++'da puan sıralama programı . TXT dosyası giriş çıkış sorguları
+---
+
+## Proje hakkında
+
+C++'da puan sıralama programı . TXT dosyası giriş çıkış sorguları. puanları sıralayıp cikis.txt sıralayan uygulama
+
+## Proje kodları
+
+```cpp
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <string>
+
+struct Takim {
+    std::string adi;
+    int puanlar;
+};
+
+bool karsilastirTakimlar(const Takim& a, const Takim& b) {
+    return a.puanlar > b.puanlar;
+}
+
+int main() {
+
+    std::ifstream girisDosyasi("giris.txt");
+
+    if (!girisDosyasi) {
+        std::cerr << "Hata: Giris dosyasi acilamadi\n";
+        return 1;
+    }
+
+    std::vector<Takim> takimlar;
+    Takim takim;
+
+    while (girisDosyasi >> takim.adi >> takim.puanlar) {
+        takimlar.push_back(takim);
+    }
+
+    girisDosyasi.close();
+
+    // Takimlari puanlarina göre sırala
+    std::sort(takimlar.begin(), takimlar.end(), karsilastirTakimlar);
+
+    std::ofstream cikisDosyasi("cikis.txt");
+
+    if (!cikisDosyasi) {
+        std::cerr << "Hata: Cikis dosyasi olusturulamadi\n";
+        return 1;
+    }
+
+    // Sirali takimlari cikis dosyasina yazdir
+    cikisDosyasi << "Sira\tTakim adi\tPuanlar\n";
+    for (int i = 0; i < takimlar.size(); ++i) {
+        cikisDosyasi << i + 1 << "\t" << takimlar[i].adi << "\t" << takimlar[i].puanlar << "\n";
+    }
+
+    cikisDosyasi.close();
+
+    std::cout << "Takimlar basariyla siralandi ve cikis.txt dosyasina yazildi.\n";
+
+    // Console'un kapanmasini engellemek için bir tusa basılmasını bekleyin
+    std::cout << "Programdan cikmak icin bir tusa basin...";
+    std::cin.get();
+
+    return 0;
+}
+```
