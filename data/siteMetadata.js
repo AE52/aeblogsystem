@@ -1,7 +1,7 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
   title: 'Blog',
-  author: 'AE52',
+  author: 'ae52',
   headerTitle: 'AE blog',
   description: 'Projeler ve bilgilerimiz',
   language: 'tr-TR',
