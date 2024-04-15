@@ -1,0 +1,64 @@
+---
+title: C++'da puan sıralama programı
+date: '2024-04-09'
+tags: ['projelerim', 'bildirim']
+draft: false
+summary: C++'da zar atma oyunu ve kaynak kodları
+---
+
+## Proje hakkında
+
+C++'da zar atma oyunu ve kaynak kodları
+
+## Proje kodları
+
+```cpp
+#include <iostream>
+#include <string>
+#include "dice.h"
+#include "randgen.h"
+using namespace std;
+
+
+
+int main() {
+    string giris = ""; 
+
+    cin >> giris;
+    int giris_sayi = stoi(giris);
+    Dice player1(giris_sayi); //zarýn kaç yüzlü olduðu
+    Dice player2(giris_sayi);
+    int p1_score = 0, p2_score = 0; // player 1 score = oyuncu 1 skoru player 2 score = oyuncu 2 skoru
+    int finishing_threshold = 30, cur_score; // finishing threshold = oyunun kaçta biticeði//oyunu 20ye ulaþan kazansýn istiyoruz // cur_scorede oyuncunun her tur kazandýðý puaný tutmak için
+    while(p1_score < finishing_threshold && p2_score < finishing_threshold) // && ve anlamýna gelmekte ve ikiside doðru olursa þart saðlanýr birtanesi bile doðru olmazsa while döngüsüne girmez
+    {
+        cur_score = player1.Roll();
+        p1_score += cur_score; //
+        cout << "1. oyuncu zar atti " << cur_score << " puan kazandi " << p1_score <<  " toplam puani " << endl;
+        if(p1_score >= finishing_threshold)
+        {
+            cout << " 1. oyuncu " << finishing_threshold <<" puana ulasti ve oyuni kazandi " << endl;
+            break;
+        }
+        cur_score = player2.Roll();
+        p2_score += cur_score;
+        cout << "2. oyuncu zar atti " << cur_score << " puan kazandi " << p2_score <<  " toplam puani" << endl;
+        if(p2_score >= finishing_threshold)
+        {
+            cout << " 2. oyuncu " << finishing_threshold << " puana ulasti ve oyuni kazandi " << endl;
+        }
+        
+    }
+    
+    return 0;
+}
+
+```
+
+## Proje kurulumu
+
+[kaynak dosyaları](https://github.com/AE52/zaroyunucppprojesi) ----- [kaynak dosyalarını indirin](https://github.com/AE52/zaroyunucppprojesi/archive/refs/heads/main.zip) \
+1.kaynak dosyalarını indir dedikten sonra indirilenlere inecek olan zipi açıyoruz \
+![](https://i.imgur.com/M8UGTAN.png) 2. adım sln uzantılı dosyayı açın visual studioda yüklendikten sonra karşınıza böyle bir uyarı çıkacak "ok" basın
+![](https://i.imgur.com/GxLnfl0.png) 3. alttaki fotoğraftaki adımları sırasıyla takip edin .
+![](https://i.imgur.com/SRK16oU.png) 4. işlem tamamlandı ...
